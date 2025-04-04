@@ -5,7 +5,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
 from ui.pages.base_page import BasePage
 from ui.pages.main_page import MainPage
-
+from selenium.webdriver.chrome.service import Service
 
 @pytest.fixture()
 def driver(config):
@@ -27,7 +27,7 @@ def driver(config):
             desired_capabilities=capabilities
         )
     elif browser == 'chrome':
-        driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
+        driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
     elif browser == 'firefox':
         driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
     else:
