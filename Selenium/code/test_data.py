@@ -1,6 +1,6 @@
 CREDENTIALS = {
     "login": "admin",
-    "password": "1245"
+    "password": "12345"
 }
 
 SEARCH_PERSON_NAME = "Константин Ермаков"
