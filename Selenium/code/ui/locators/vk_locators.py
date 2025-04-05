@@ -15,10 +15,8 @@ class PeoplePageLocators:
 
 
 class SchedulePageLocators:
-    @staticmethod
-    def date_cell(partial_date):
-        return (By.XPATH, f'//td[contains(@class, "schedule-timetable__item__date")]//strong[contains(text(), "{partial_date}")]')
-
-    @staticmethod
-    def title_cell(partial_title):
-        return (By.XPATH, f'//td[contains(@class, "schedule-timetable__item__event")]//strong[contains(text(), "{partial_title}")]')
+    SEMESTER_TAB = (By.XPATH, '//li[@intervalid="semester"]')
+    EVENT_TYPE_DROPDOWN = (By.XPATH, '//div[contains(@class, "schedule-filters__item_type")]//div[contains(@class, "r-input-flex")]')
+    EVENT_TYPE_OPTION = lambda value: (By.XPATH, f'//span[@class="option-label" and normalize-space()="{value}"]')
+    DATE_CELL = lambda value: (By.XPATH, f"//td[contains(@class, 'schedule-timetable__item__date')]//*[contains(text(), '{value}')]")
+    TITLE_CELL = lambda value: (By.XPATH, f"//td[contains(@class, 'schedule-timetable__item__event')]//a[contains(., '{value}')]")

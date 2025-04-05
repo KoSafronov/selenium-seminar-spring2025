@@ -1,6 +1,6 @@
 import pytest
 from _pytest.fixtures import FixtureRequest
-
+from base import BaseCase
 from ui.pages.base_page import BasePage
 
 

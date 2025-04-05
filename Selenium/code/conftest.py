@@ -1,3 +1,5 @@
+import pytest
+from test_data import CREDENTIALS
 from ui.fixtures import *
 
 
@@ -31,3 +33,8 @@ def config(request):
         'selenoid': selenoid,
         'vnc': vnc,
     }
+
+
+@pytest.fixture
+def credentials():
+    return CREDENTIALS

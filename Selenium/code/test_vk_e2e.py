@@ -2,7 +2,8 @@ import pytest
 from ui.pages.login_page import LoginPage
 from ui.pages.people_page import PeoplePage
 from ui.pages.schedule_page import SchedulePage
-from user_data import CREDENTIALS, SEARCH_PERSON_NAME, SEMINAR_DATE, SEMINAR_TITLE
+from test_data import CREDENTIALS, SEARCH_PERSON_NAME, SEMINAR_DATE, SEMINAR_TITLE, SEMINAR_TYPE
+
 
 class TestVkEducation:
     @pytest.fixture(autouse=True)
@@ -23,4 +24,4 @@ class TestVkEducation:
     def test_current_seminar(self):
         self.login_page.login(CREDENTIALS["login"], CREDENTIALS["password"])
         self.driver.get("https://education.vk.company/schedule/")
-        assert self.schedule_page.check_seminar(SEMINAR_DATE, SEMINAR_TITLE)
+        assert self.schedule_page.check_seminar(SEMINAR_DATE, SEMINAR_TITLE, SEMINAR_TYPE)
